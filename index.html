@@ -80,14 +80,14 @@
   <div class="card">
     <h1>IHS2 — Inventário de Habilidades Sociais (Autorrelato)</h1>
     <p class="muted">
-      Avalie <b>a frequência</b> com que você age ou se sente como descrito em cada item, considerando um total de 10 ocasiões possíveis.
+      Avalie <b>a frequência</b> com que você age ou se sente como descrito em cada item, considerando um total de 38 ocasiões possíveis.
     </p>
     <div class="legend">
-      <span class="pill">0 = Nunca/Raramente</span>
-      <span class="pill">1 = Pouca frequência</span>
-      <span class="pill">2 = Regular</span>
-      <span class="pill">3 = Muito frequente</span>
-      <span class="pill">4 = Sempre/Quase sempre</span>
+      <span class="pill">Nunca/Raramente</span>
+      <span class="pill">Pouca frequência</span>
+      <span class="pill">Regular</span>
+      <span class="pill">Muito frequente</span>
+      <span class="pill">Sempre/Quase sempre</span>
     </div>
 
     <div id="pacInfo" class="grid-info" style="display:none;"></div>
@@ -190,7 +190,7 @@ const ITEMS = [
 const LABELS = [
   "Nunca/Raramente",
   "Pouca frequência",
-  "Regular",
+  "Regular frequência",
   "Muito frequente",
   "Sempre/Quase sempre"
 ];
@@ -223,7 +223,7 @@ function renderQuestions(){
 
     LABELS.forEach((labTxt, val)=>{
       const lab = document.createElement('label'); lab.className = 'choice';
-      lab.innerHTML = `<input type="radio" name="q${qn}" value="${val}" required aria-labelledby="s${qn}"><span>${labTxt}<small>(${val})</small></span>`;
+      lab.innerHTML = `<input type="radio" name="q${qn}" value="${val}" required aria-labelledby="s${qn}"><span>${labTxt}<small></small></span>`;
       scale.appendChild(lab);
     });
 
@@ -287,10 +287,8 @@ function renderPatientInfo(){
   const g = $("#pacInfo"); g.innerHTML="";
   const info = [
     ["Nome", patient.nome || "-"],
-    ["CPF", maskCPF(patient.cpf)],
-    ["Nascimento", fmtDateISO(patient.data_nascimento)],
-    ["E-mail", patient.email || "-"],
-    ["WhatsApp", patient.whatsapp || "-"]
+    ["CPF", maskCPF(patient.cpf)]
+   
   ];
   for(const [k,v] of info){
     const div = document.createElement("div");
