@@ -701,12 +701,13 @@ $("#form").addEventListener("submit", async (e)=>{
     const F5s = sumSet(F5_NORMAL) + sumSet(F5_REVERSED, inv5);
 
     const categoria_csv = [
-      `total=${total}`,
+      
       `F1=${F1}`,
       `F2=${F2s}`,
       `F3=${F3s}`,
       `F4=${F4s}`,
-      `F5=${F5s}`
+      `F5=${F5s}`,
+      `total=${total}`
     ].join(',');
 
     // Métricas detalhadas + perguntas/respostas em JSON
